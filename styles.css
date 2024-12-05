@@ -1,0 +1,353 @@
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Anonymous Pro', sans-serif;
+    line-height: 1.6;
+    color: #000;
+}
+
+/* Верхня навігація */
+.top-nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.top-nav ul li {
+    margin: 0 20px;
+}
+
+.top-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.top-nav ul li a:hover {
+    color: #8e6b3a;
+}
+
+/* Головний банер */
+.hero {
+    background-image: url('images/fon.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 60px; /* щоб не перекривати навігацію */
+}
+
+.hero h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Секції */
+.our-story, .our-wines {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-story h1, .our-wines h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #5e4b3c;
+    font-family: 'Anonymous Pro', monospace;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 2s ease-out;
+}
+
+.our-story h1::after, .our-wines h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #8e6b3a;
+    border-radius: 5px;
+}
+
+.our-story .section-content p, .wine-items img {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.8;
+    margin: 20px auto;
+    max-width: 900px;
+    text-align: justify;
+    opacity: 0;
+    animation: fadeInText 2.5s ease-out 1s forwards;
+}
+
+.our-wines .section-title {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Слайдер */
+.wine-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 100px;
+    overflow: hidden; /* Приховуємо елементи, що виходять за межі */
+}
+
+/* Всі елементи вин всередині контейнера */
+.wine-items {
+    display: flex;
+    gap: 60px; /* Відстань між елементами */
+    transition: transform 0.5s ease-in-out; /* Плавна анімація прокручування */
+    overflow-x: hidden; /* Приховуємо зайвий контент */
+}
+
+/* Кожен елемент вина */
+.wine-item {
+    width: 100px;
+    height: 500px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Збільшення елемента при наведенні */
+.wine-item:hover {
+    transform: scale(1.05);
+}
+
+/* Стилі для кнопок прокручування */
+.slider-btn {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+/* Зміна кольору при наведенні */
+.slider-btn:hover {
+    background-color: #E4DDCE;
+}
+
+/* Кнопка для прокручування вліво */
+.prev-btn {
+    left: 10px;
+}
+
+/* Кнопка для прокручування вправо */
+.next-btn {
+    right: 10px;
+}
+
+/* Кнопка "See All Wines" */
+.see-all {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: 1px solid #764C00;
+    background-color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+}
+
+.see-all:hover {
+    background-color: #E4DDCE;
+    color: #764C00;
+}
+
+/* Футер */
+.footer {
+    background-image: url('images/winegar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+    color: #fff;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-left p {
+    font-size: 16px;
+    color: #333;
+}
+
+.email-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.email-form input {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px;
+    font-size: 14px;
+    background: none;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.email-form input:focus {
+    border-color: #764C00;
+}
+
+.email-form button {
+    background-color: #764C00;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.email-form button:hover {
+    background-color: #8e6b3a;
+}
+
+.social-icons img {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-center {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 150px;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+    min-width: 200px;
+}
+
+.back-to-top {
+    font-size: 14px;
+    color: #764C00;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+}
+
+.footer-bottom a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Анімація */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
